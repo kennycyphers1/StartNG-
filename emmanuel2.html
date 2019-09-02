@@ -48,19 +48,19 @@ h3 {
 }
 
 aside {
-  width: 200px;
-  height: 200px;
+  width: 330px;
+  height: 820px;
   border: 1px solid #10889E;
   float: left;
-  margin-left: 30px;
+  margin-left: 10px;
   padding: 5px;
   border-radius: 5px;
 }
 
 #main {
-  width: 800px;
+  width: 730px;
   float: right;
-  margin-right: 30px;
+  margin-right: 10px;
   line-height: 20px;
   text-align: justify;
 }
@@ -70,6 +70,75 @@ footer {
   background-color: #445566;
   clear: both;
   border-radius: 5px;
+}
+
+
+
+/*Form Styling Starts Here*/
+
+form { max-width:300px; margin:50px auto; }
+
+.feedback-input {
+  color:black;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #10889E;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #CC4949; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#10889E;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[type="submit"]:hover { background:blue; }
+
+.legends{
+  line-height: 22px;
+  border-radius: 5px;
+  background-color: transparent;
+  border:2px solid #10889E;
+  box-sizing: border-box;
+  outline:0;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+}
+
+input:invalid {
+  box-shadow: 0 0 3px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
 }
 
 </style>
@@ -95,6 +164,29 @@ footer {
         <center><img src= "https://res.cloudinary.com/kennyhobz-com/image/upload/v1566504131/My%20Photos/EMMA_PASSPORT_qixbfv.jpg" width="150" height="150">
         <h3>EMMANUEL KENE</h3></center> 
         <center><h3>Web Designer</h3></center>
+
+
+    <!-- Form Section Starts Here -->
+
+    <form id="form_id">
+    <center><h2>CONTACT ME HERE</h2> </center>
+  <fieldset class="legends">
+      <legend>Title<abbr title="This field is mandatory">*</abbr></legend>
+      <input type="radio" required name="title" id="r1" value="Mr"><label for="r1">Mr.</label>
+      <input type="radio" required name="title" id="r2" value="Ms"><label for="r2">Ms.</label>
+      <input type="radio" required name="title" id="r2" value="Ms"><label for="r2">Mrs.</label>
+      <input type="radio" required name="title" id="r2" value="Ms"><label for="r2">Dr.</label>
+      
+    </fieldset>
+  <input name="name" id="name" type="text" class="feedback-input" placeholder="Name" required="true" minlength="4"/>   
+  <input type="email" id="email" name="email" class="feedback-input" placeholder="Email" required="true"/>
+  <input name="name" type="text" class="feedback-input" placeholder="Subject of your Message" required="true" maxlength="50" minlength="10"/>
+  <textarea type="message" name="message" class="feedback-input" placeholder="Drop the body of your Message Here!" required="true" maxlength="500" minlength="20"></textarea>
+  <input type="submit" value="SUBMIT" onclick="submit_by_id()"/>
+
+</form>
+    <!-- Form Section Ends Here -->
+
         
     </aside>
 
@@ -238,5 +330,22 @@ Job Description:<ul>
     </footer>
 	
 </div> 
+
+
+
+
+    <script type="text/javascript">
+ 
+// Submit form with id function.
+function submit_by_id() {
+var name = document.getElementById("name").value;
+var email = document.getElementById("email").value;
+if (validation()) // Calling validation function
+{
+document.getElementById("form_id").submit(); //form submission
+alert(" Name : " + name + " n Email : " + email + " n Form Id : " + document.getElementById("form_id").getAttribute("id") + "nn Form Submitted Successfully......");
+}
+}
+ </script>
 </body>
 </html>
